@@ -1,0 +1,71 @@
+Multiple Linear Regression
+Results:
+Call:
+lm(formula = MechaMPG$mpg ~ MechaMPG$"vehicle length" + MechaMPG$"vehicle weight" + 
+    MechaMPG$"spoiler angle" + MechaMPG$"ground clearance", data = MechaMPG)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-21.3395  -4.1155  -0.2094   6.8789  17.2672 
+
+Coefficients:
+                              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                 -1.076e+02  1.576e+01  -6.823 1.87e-08 ***
+MechaMPG$"vehicle length"    6.240e+00  6.609e-01   9.441 3.05e-12 ***
+MechaMPG$"vehicle weight"    1.277e-03  6.948e-04   1.837   0.0728 .  
+MechaMPG$"spoiler angle"     8.031e-02  6.656e-02   1.207   0.2339    
+MechaMPG$"ground clearance"  3.659e+00  5.394e-01   6.784 2.13e-08 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 8.853 on 45 degrees of freedom
+Multiple R-squared:  0.7032,	Adjusted R-squared:  0.6768 
+F-statistic: 26.65 on 4 and 45 DF,  p-value: 2.277e-11
+
+
+    The independent variables considered in this regression model were: vehicle length, vehicle weight,
+spoiler angle, and ground clearance. After using R's multiple regression function, and using a p-value
+of less than 0.05 to be considered significant, the vehicle length (p = 3.05e-12), ground clearance 
+(p = 2.13e-08), and to some extent vehicle weight (p = 0.073) were the variables that had the most 
+impact on fuel efficiency. Also, the fact that the intercept is "significant" (p = 1.87e-08) means there
+is some other variable that is contributing to the mpg that we are not accounting for. 
+    The r^2 value given is 0.732 which means that there is a strong positive correlation. This along with 
+the fact that the p value is 2.277e-11 (very significant) shows that the slope is not considered zero.
+Since we have two variables with a p value greater than 0.05 and the p value of the intercept is very low
+means that this model may not be the best at predicting our car's mpg. In order to get a better predicting
+model, we would probably need to include whether the car is all wheel drive or not in our model.
+
+
+
+Suspension Coil 
+Summary Table:
+        Manufacturing_Lot   MeanPSI     Median_PSI      Variance        std_Dev
+1           Lot1            1500.018    1500.206        1.146034        1.070525
+2           Lot2            1499.571    1498.873        10.131511       3.183003
+3           Lot3            1499.004    1497.981        220.010563      14.832753
+
+
+    The summary table of the suspension PSI data shows that each of the three manufacturing lots are
+producing suspensions that are on average very close to one another. However, the variance in the
+data from lot 3 shows that lot 3 is inconsistent in their manufacturing. Their average is close
+to the other lots, but they must have some bad outliers effecting the data. The variance of 220
+from Lot3 is outside of company tolerances and must be addressed. 
+
+Suspension T-test
+    One of the requirements needed to perform a t-test is that the data is considered to be normally
+distributed. So the first step was to use a shapiro-wilk test to confirm normalcy. The results of
+this test gave a p-value of 6.011e-11. This is unfortunate because it means that the data is not 
+normally distributed and therefore we cannot perform a t-test on this data. 
+
+
+Design your own test
+    My test will compare the crash test findings of our MechaCar versus other brand's cars. Our physical
+test will be to crash the MechaCar and the other cars into a wall head on at 50mph and repeat 50 times. 
+An accelerometer in the cars will measure the g-forces experienced by the car's passengers in the 
+simulated crash. A lower g-force reading will mean a safer car for prospective customers. 
+    The question we are asking is, is the mean g-force of MechaCar lower than the mean g-force of the 
+other cars. The null hypothesis is that there is no statistical difference between MechaCar's mean g-force
+and the other car's mean g-force. The alternative hypothesis is that there is a significant statistical
+difference in the mean g-forces. To determine this, we will perform a two sample t-test to compare the 
+different means. 
+
